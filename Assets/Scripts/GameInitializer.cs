@@ -28,8 +28,6 @@ public class GameInitializer : MonoBehaviour {
     }
 
     void spawnPlayers() {
-        foreach(Player p in State.players) {
-            Debug.Log(p.name);
-        }
+        
     }
 }

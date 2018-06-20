@@ -6,6 +6,6 @@
     public float cordZ;
     public float rotation;
     public int inputX;
-    public int inputY;
+    public int inputZ;
     public int lastChange;
 }
