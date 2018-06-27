@@ -5,7 +5,7 @@
     public float cordX;
     public float cordZ;
     public float rotation;
-    public int inputX;
-    public int inputZ;
+    public float inputX;
+    public float inputZ;
     public int lastChange;
 }

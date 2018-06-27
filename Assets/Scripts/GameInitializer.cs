@@ -3,9 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameInitializer : MonoBehaviour {
+
+    public GameObject magePrefab;
+    public GameObject cameraPrefab;
+
 	void Start () {
         initializePlayers();
         spawnPlayers();
+        gameObject.AddComponent<InputHandler>();
 	}
 	
 	void Update () {
@@ -28,6 +33,13 @@ public class GameInitializer : MonoBehaviour {
     }
 
     void spawnPlayers() {
-        
+        foreach(var player in State.players) {
+            GameObject playerObject = Instantiate(magePrefab);
+            playerObject.GetComponent<PlayerController>().player = player;
+
+            if (player.currentPlayer) {
+                GameObject cameraObject = Instantiate(cameraPrefab, playerObject.transform);
+            }
+        }
     }
 }
