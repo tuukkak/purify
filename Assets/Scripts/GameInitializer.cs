@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class GameInitializer : MonoBehaviour {
 
@@ -10,11 +8,7 @@ public class GameInitializer : MonoBehaviour {
 	void Start () {
         initializePlayers();
         spawnPlayers();
-        gameObject.AddComponent<InputHandler>();
-	}
-	
-	void Update () {
-		
+        startInputHandler();
 	}
 
     void initializePlayers() {
@@ -41,5 +35,9 @@ public class GameInitializer : MonoBehaviour {
                 GameObject cameraObject = Instantiate(cameraPrefab, playerObject.transform);
             }
         }
+    }
+
+    void startInputHandler() {
+        gameObject.AddComponent<InputHandler>();
     }
 }
