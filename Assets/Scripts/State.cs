@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 
-public class State {
-    public static List<Player> players = new List<Player>();
-    public static List<Spell> spells = new List<Spell>();
+public static class State {
+    public static Player currentPlayer;
+    public static List<Hero> heroes;
+    public static List<Spell> spells;
+    public static List<Player> players;
 }
