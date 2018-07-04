@@ -2,19 +2,40 @@
 
 public class InputHandler : MonoBehaviour {
 
-    Player player;
-    float mouseSensitivity = 10f;
+    float MouseSensitivity = 10f;
+    Movement Movement;
 
-	void Start () {
-       player = State.players.Find(p => p.currentPlayer);
+    private void Start() {
+        Movement = State.currentPlayer.Movement;
+    }
+
+    void Update() {
+        UpdateMovement();
+        UpdateTarget();
 	}
-	
-	void Update () {
-        player.inputX = Input.GetAxisRaw("Horizontal");
-        player.inputZ = Input.GetAxisRaw("Vertical");
+
+    void UpdateMovement() {
+        Movement.InputX = Input.GetAxisRaw("Horizontal");
+        Movement.InputZ = Input.GetAxisRaw("Vertical");
 
         if (Input.GetMouseButton(1)) {
-            player.rotation = player.rotation + (Input.GetAxis("Mouse X") * mouseSensitivity);
+            Movement.Rotation = Movement.Rotation + (Input.GetAxis("Mouse X") * MouseSensitivity);
         }
-	}
+    }
+
+    void UpdateTarget() {
+        if (Input.GetMouseButtonDown(0)) {
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+            if (Physics.Raycast(ray, out hit)) {
+                if (hit.transform && hit.transform.gameObject.tag == "Player") {
+                    State.currentPlayer.Target = hit.transform.gameObject.GetComponent<PlayerController>().Player;
+                    return;
+                }
+            }
+
+            State.currentPlayer.Target = null;
+        }
+    }
 }
