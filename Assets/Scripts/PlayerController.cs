@@ -1,14 +1,14 @@
 ﻿using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
+    
+	public Player Player;
 
-	public Player player;
+	void Update() {
+        float x = Player.Movement.InputX * Time.deltaTime * Player.Hero.Speed;
+        float z = Player.Movement.InputZ * Time.deltaTime * Player.Hero.Speed;
+        transform.Translate(Vector3.ClampMagnitude(new Vector3(x, 0, z), Time.deltaTime * Player.Hero.Speed));
 
-	void Update () {
-        float x = player.inputX * Time.deltaTime * 5f;
-        float z = player.inputZ * Time.deltaTime * 5f;
-        transform.Translate(Vector3.ClampMagnitude(new Vector3(x, 0, z), Time.deltaTime * 5f));
-
-        transform.rotation = Quaternion.Euler(0, player.rotation, 0);
+        transform.rotation = Quaternion.Euler(0, Player.Movement.Rotation, 0);
 	}
 }
