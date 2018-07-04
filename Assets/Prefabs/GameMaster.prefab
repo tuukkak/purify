@@ -51,6 +51,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34e86b1df8f444fc8a6000c04e7ac1af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  magePrefab: {fileID: 1508199490180148, guid: bc83be2624fb6460688aa45d0db6aed7, type: 2}
-  cameraPrefab: {fileID: 1519344251941898, guid: 043a7a366880d48fc8e97b81ef0b6d2f,
+  MagePrefab: {fileID: 1508199490180148, guid: bc83be2624fb6460688aa45d0db6aed7, type: 2}
+  CameraPrefab: {fileID: 1519344251941898, guid: 043a7a366880d48fc8e97b81ef0b6d2f,
+    type: 2}
+  UnitFramesPrefab: {fileID: 1777697423449324, guid: 38ef46f9292064a1481bd9e513a8b437,
     type: 2}
