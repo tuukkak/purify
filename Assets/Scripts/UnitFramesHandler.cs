@@ -1,0 +1,32 @@
+﻿using UnityEngine;
+
+public class UnitFramesHandler : MonoBehaviour {
+
+    GameObject TargetHealthBar;
+
+	void Start() {
+        InitializePlayerFrame();
+        InitializeTargetFrame();
+	}
+
+    void InitializePlayerFrame() {
+        transform.Find("PlayerFrame").GetChild(0).GetChild(0).GetComponent<HealthBarHandler>().Player = State.currentPlayer;
+    }
+
+    void InitializeTargetFrame() {
+        TargetHealthBar = transform.Find("TargetFrame").GetChild(0).gameObject;
+    }
+	
+	void Update() {
+        UpdateTargetFrame();
+	}
+
+    void UpdateTargetFrame() {
+        if (State.currentPlayer.Target == null) {
+            TargetHealthBar.SetActive(false);
+        } else {
+            TargetHealthBar.transform.GetChild(0).GetComponent<HealthBarHandler>().Player = State.currentPlayer.Target;
+            TargetHealthBar.SetActive(true);
+        }
+    }
+}
