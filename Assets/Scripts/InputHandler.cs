@@ -5,7 +5,7 @@ public class InputHandler : MonoBehaviour {
     float MouseSensitivity = 10f;
     Movement Movement;
 
-    private void Start() {
+    void Start() {
         Movement = State.currentPlayer.Movement;
     }
 
