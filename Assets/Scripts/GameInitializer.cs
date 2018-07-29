@@ -26,8 +26,8 @@ public class GameInitializer : MonoBehaviour {
 
     void InitializeSpells() {
         State.spells = new List<Spell>() {
-            new Spell(id: 1, heroId: 1, name: "Frostbolt", range: 30f, castTime: 1.7f),
-            new Spell(id: 2, heroId: 1, name: "Counter Spell", range: 20f)
+            new Spell(id: 1, heroId: 1, keyCode: "Alpha1", name: "Frostbolt", range: 30f, castTime: 2.3f, speed: 13f, spellPrefabIndex: 0),
+            new Spell(id: 2, heroId: 1, keyCode: "Alpha2", name: "Counter Spell", range: 20f)
         };
     }
 
