@@ -39,7 +39,7 @@ public class GameInitializer : MonoBehaviour {
             new Player(id: 4, name: "Player 4", heroId: 1)
         };
 
-        State.currentPlayer = State.players.Find(p => p.Id == 1);
+        State.CurrentPlayer = State.players.Find(p => p.Id == 1);
     }
 
     void SpawnPlayers() {
@@ -47,7 +47,7 @@ public class GameInitializer : MonoBehaviour {
             GameObject PlayerObject = Instantiate(MagePrefab);
             PlayerObject.GetComponent<PlayerController>().Player = Player;
 
-            if (Player.Id == State.currentPlayer.Id) {
+            if (Player.Id == State.CurrentPlayer.Id) {
                 Instantiate(CameraPrefab, PlayerObject.transform);
             }
         }

@@ -10,7 +10,7 @@ public class UnitFramesHandler : MonoBehaviour {
 	}
 
     void InitializePlayerFrame() {
-        transform.Find("PlayerFrame").GetChild(0).GetChild(0).GetComponent<HealthBarHandler>().Player = State.currentPlayer;
+        transform.Find("PlayerFrame").GetChild(0).GetChild(0).GetComponent<HealthBarHandler>().Player = State.CurrentPlayer;
     }
 
     void InitializeTargetFrame() {
@@ -22,10 +22,10 @@ public class UnitFramesHandler : MonoBehaviour {
 	}
 
     void UpdateTargetFrame() {
-        if (State.currentPlayer.Target == null) {
+        if (State.CurrentPlayer.Target == null) {
             TargetHealthBar.SetActive(false);
         } else {
-            TargetHealthBar.transform.GetChild(0).GetComponent<HealthBarHandler>().Player = State.currentPlayer.Target;
+            TargetHealthBar.transform.GetChild(0).GetComponent<HealthBarHandler>().Player = State.CurrentPlayer.Target;
             TargetHealthBar.SetActive(true);
         }
     }
