@@ -15,6 +15,7 @@ public class GameInitializer : MonoBehaviour {
         SpawnPlayers();
         ShowUnitFrames();
         StartInputHandler();
+        Network.Connect();
 	}
 
     void InitializeHeroes() {
