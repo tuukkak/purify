@@ -45,6 +45,7 @@ public class GameInitializer : MonoBehaviour {
     void SpawnPlayers() {
         foreach(Player Player in State.players) {
             GameObject PlayerObject = Instantiate(MagePrefab);
+            Player.GameObject = PlayerObject;
             PlayerObject.GetComponent<PlayerController>().Player = Player;
 
             if (Player.Id == State.CurrentPlayer.Id) {
